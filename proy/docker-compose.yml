@@ -1,0 +1,29 @@
+
+services:
+  api:
+    build: ./api
+    container_name: api-typescript
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    environment:
+      - PORT=${PORT}
+      - MONGO_URI=${MONGO_URI}
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./mongo/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+volumes:
+  mongo-data:
