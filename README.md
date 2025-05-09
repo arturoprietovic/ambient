@@ -27,7 +27,6 @@ MONGO_URI=mongodb://localhost:27017/flightsdb
 ### 4️⃣ Correr localmente (development)
 ```bash
 npm run dev
-Uses ts-node-dev for hot reload.
 ```
 
 ### 5️⃣ Build  (production)
@@ -38,8 +37,8 @@ npm start
 ### 6️⃣ Correr con Docker
 ```bash
 docker-compose up --build
-Ensure your .env is correctly set for Docker MongoDB.
 ```
+
 
 ## 📜 Documentación 
 
